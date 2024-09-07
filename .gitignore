@@ -1,0 +1,31 @@
+*.pdf
+
+####### 서버 #######
+server/node_modules/
+####### 서버 #######
+
+####### 클라 #######
+web/node_modules/
+
+# 사진파일 무시
+web/**/*.jpg
+web/**/*.png
+web/**/*.ico
+web/**/*.svg
+
+# 초기화 데이터 무시
+web/src/data/userinfo.js
+
+# 보안 관련 항목 무시
+web/src/build.sh
+web/src/rootca-crt.pem
+web/src/rootca-key.pem
+web/src/rootca.crt
+web/src/rootca.csr
+web/src/rootca.key
+web/private.key
+web/request.csr
+####### 클라 #######
+
+####### 백업 #######
+web-backup/
