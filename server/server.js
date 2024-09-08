@@ -5,7 +5,7 @@
 const express = require('express');
 const app = express();
 const port = 3001;
-const PASSWORD = "legend";
+const PASSWORD = require('./pw');
 
 //Express 4.16.0버전 부터 body-parser의 일부 기능이 익스프레스에 내장 body-parser 연결 
 app.use(express.json());
@@ -23,15 +23,26 @@ app.get('/', (req, res) => {
     });
 });
 
-// 유저 정보 불러오기
-let userInfoRoute = '/userInfo/'
-app.get(userInfoRoute, (req, res) => {
-    let userInfo = require('../web/src/data/userinfo.json');
-
-    res.json(userInfo);
-    console.log(userInfo);
-});
-
 app.listen(port, () => {
     console.log(`server is listening at localhost:${port}`);
+});
+
+// Debugging
+app.get('/debug', (req, res) => {
+    let userInfo = require('../web/src/data/userinfo.json');
+    const { value } = req.query;
+
+    if (value === "userInfo") { // http://localhost:3001/debug?value=userInfo
+        res.json(userInfo);
+        console.log(userInfo);
+    }
+    else if (value != null)
+        console.log("ERROR: Parser Value Invalid");
+    else
+        console.log(PASSWORD);
+});
+
+// for Unity
+app.get('/unity', (req, res) => {
+    const { value } = req.query;
 });
