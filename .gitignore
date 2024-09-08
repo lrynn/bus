@@ -14,7 +14,7 @@ web/**/*.ico
 web/**/*.svg
 
 # 초기화 데이터 무시
-web/src/data/userinfo.js
+web/src/data/userinfo.json
 
 # 보안 관련 항목 무시
 web/src/build.sh
