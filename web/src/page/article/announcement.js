@@ -2,7 +2,9 @@ import './article.css';
 
 function Content(){
     return (
-        
+        <div className='divContents'>
+            '공지임'
+        </div>
     );
 }
 

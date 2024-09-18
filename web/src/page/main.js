@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import './main.css';
 import ImageSlider from './ImageSlider';
 
-function Content(){
+function Content() {
   return (
     <div className='divContents'>
       <div className='mainGames'>

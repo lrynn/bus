@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './main.css';
+
+import { useUserInfo } from '../App';
+
 import busLogo from '../bus_logo.png';
 
-function Header(){
+function Header({ nick }) {
+  const { userInfo, setUserInfo } = useUserInfo();
+  let userCollege = userInfo[0];
+  let userMajor = userInfo[1];
+  let userNickname = userInfo[2];
+  let loginButtonTitle = userNickname == "InitialNickname" ? "로그인" :
+    <>
+      <span className='loginButtonTitle_dept'>{userCollege} {userMajor}</span> <span className='loginButtonTitle_name'>{userNickname}</span>
+    </>;
+
   let logo = {imageLink:busLogo, link:'/'}; // 타이틀 버튼
-  let loginButton = {title:'로그인', link:'/login'}; // 로그인 버튼
+  let loginButton = { title: loginButtonTitle, link: '/login' }; // 로그인 버튼
 
   let rButtonList = [ // 상단바 우측 버튼 링크
     {id:0, title:'소개', link:'/page/article/intro'},
@@ -24,7 +36,7 @@ function Header(){
         </div>
         <div className='buttons-container'>
           <li className="loginButton">
-            <Link to={loginButton.link} title={loginButton.title}>
+            <Link to={loginButton.link} title={nick}>
               {loginButton.title}
             </Link>
           </li>

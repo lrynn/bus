@@ -2,7 +2,9 @@ import './article.css';
 
 function Main(){
     return (
-        gd
+        <div className='divContents'>
+            소개임
+        </div>
     );
 }
 
