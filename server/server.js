@@ -29,12 +29,12 @@ app.listen(port, () => {
 
 // Debugging
 app.get('/debug', (req, res) => {
-    let userInfo = require('../web/src/data/userinfo.json');
+    let deptInfo = require('../web/src/data/deptinfo.json');
     const { value } = req.query;
 
-    if (value === "userInfo") { // http://localhost:3001/debug?value=userInfo
-        res.json(userInfo);
-        console.log(userInfo);
+    if (value === "deptInfo") { // http://localhost:3001/debug?value=deptInfo
+        res.json(deptInfo);
+        console.log(deptInfo);
     }
     else if (value != null)
         console.log("ERROR: Parser Value Invalid");

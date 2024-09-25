@@ -10,6 +10,20 @@ import Archive from './page/article/archive';
 import Intro from './page/article/intro';
 import Services from './page/article/services';
 
+import './App.css'
+function Bottom(){
+  return (
+    <footer>
+      <p>
+        HyunBus Software ⓒ 2024
+      </p>
+      <p>
+        Web Version : 9.25.06
+      </p>
+    </footer>
+  );
+}
+
 export const deptInfo = require("./data/deptinfo.json");
 export const collegeList = Object.keys(deptInfo);
 
@@ -29,19 +43,24 @@ export function useUserInfo() {
 const App = () => {
   return (
     <UserInfoProvider>
-      <div className='App'>
-        <BrowserRouter>
-          <Header nick={ useUserInfo() } />
-          <Routes>
-            <Route path='/' element={<Main />} />
-            <Route path='/login' element={<LoginPage />} />
-            <Route path='/page/article/announcement' element={<Announcement />} />
-            <Route path='/page/article/archive' element={<Archive />} />
-            <Route path='/page/article/intro' element={<Intro />} />
-            <Route path='/page/article/services' element={<Services />} />
-          </Routes>
-        </BrowserRouter>
-      </div>
+      <BrowserRouter>
+        <div className='app-main'>
+          <div className='app-top'>
+            <Header nick={ useUserInfo() } />
+            <Routes>
+              <Route path='/' element={<Main />} />
+              <Route path='/login' element={<LoginPage />} />
+              <Route path='/page/article/announcement' element={<Announcement />} />
+              <Route path='/page/article/archive' element={<Archive />} />
+              <Route path='/page/article/intro' element={<Intro />} />
+              <Route path='/page/article/services' element={<Services />} />
+            </Routes>
+          </div>
+          <div className='app-bottom'>
+            <Bottom />
+          </div>
+        </div>
+      </BrowserRouter>
     </UserInfoProvider>
 	);
 };

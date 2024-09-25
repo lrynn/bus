@@ -44,14 +44,6 @@ const ImageSlider = () => {
             className="slide"
             style={{ backgroundImage: `url(${image})` }}
           >
-            <div className='gameIntro'>
-              <header className='gameName'>
-                게임제목
-              </header>
-              <div className='gameInfo'>
-                게임설명
-              </div>
-            </div>
           </div>
         ))}
         

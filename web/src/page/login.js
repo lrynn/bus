@@ -8,7 +8,7 @@ import { useUserInfo, deptInfo, collegeList } from '../App';
 function SelectDept() {
   const { userInfo, setUserInfo } = useUserInfo();
   const [selectedCollege, setSelectedCollege] = useState(userInfo[0] ? userInfo[0] : collegeList[0]);
-  const [selectedMajor, setSelectedMajor] = useState(userInfo[1] ? userInfo[1] : '');
+  const [selectedMajor, setSelectedMajor] = useState(userInfo[1] ? userInfo[1] : deptInfo['문과대학'][0]);
 
   const handleCollegeChange = (event) => {
     let key = event.target.value;

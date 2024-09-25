@@ -80,6 +80,7 @@
 
 .divContents{
   margin: 20px 15%;
+  flex-grow: 1;
 }
 
 .mainGames{
@@ -98,10 +99,6 @@
     text-align: right;
     vertical-align: -100%;
   }
-}
-
-.bottom {
-  background-color: gray;
 }
 
 @keyframes App-logo-spin {

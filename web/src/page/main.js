@@ -1,5 +1,4 @@
-import React, { createContext } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 
 import './main.css';
 import ImageSlider from './ImageSlider';
@@ -31,19 +30,10 @@ function Content() {
   );
 }
 
-function Bottom(){
-  return (
-    <div className='bottom'>
-      밑바닥
-    </div>
-  );
-}
-
 function Main() {
   return (
     <div>
       <Content/>
-      <Bottom/>
     </div>
   );
 }
