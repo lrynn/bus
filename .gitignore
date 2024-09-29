@@ -20,7 +20,9 @@ web/**/*.svg
 web/src/data/
 
 # 공지사항 무시
-web/src/page/article/*.js
+web/src/page/article/announcement.js
+web/src/page/article/intro.js
+web/src/page/article/services.js
 
 # 보안 관련 항목 무시
 web/src/build.sh

@@ -33,6 +33,16 @@
     padding:30px 0;
 }
 
+.gradeTable{
+    margin:50px 0;
+}
+.gameButtonDiv{
+    width:100%;
+}
+.gameButton{
+    width:14%;
+}
+
 .drip{
     color:gray;
 }
