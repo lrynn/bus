@@ -96,16 +96,7 @@
   }
   td {
     height:100px;
-    text-align: right;
-    vertical-align: -100%;
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+    width:25%;
+    text-align: center;
   }
 }

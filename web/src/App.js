@@ -1,4 +1,4 @@
-import React, { Children, Component, createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Header from './page/header'
@@ -18,7 +18,7 @@ function Bottom(){
         HyunBus Software ⓒ 2024
       </p>
       <p>
-        Web Version : 9.25.06
+        Web Version : 9.30.26
       </p>
     </footer>
   );

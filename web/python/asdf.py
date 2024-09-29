@@ -1,16 +1,33 @@
 ### 새 게임 data.json 추가용 코드
-### 'gameName' 변수를 꼭 먼저 확인하고 실행하세요
+### 막 돌려서 데이터 날라가면 난 몰라
 
 import json
 
-gameName = '3'
+gameNames = [
+    'khuonbird',
+    'tetris',
+    'msweeper',
+    'snake',
+    'pacman',
+    'popcat',
+    'numbsball'
+]
 
 with open('./web/src/data/deptinfo.json', 'rt', encoding='utf8') as f:
-    data = json.load(f)
+    rawdata = json.load(f)
 
-for key in data.keys():
-    for i in range(len(data[key])):
-        data[key][i] = [data[key][i], 0]
+data = {}
 
-with open(f'./web/src/data/{gameName}.json', 'w') as f:
-    json.dump(data, f, indent='\t', ensure_ascii=False)
+for college, departments in rawdata.items():
+    college_temp = [0, "None"]
+    department_temp = {}
+    
+    for department in departments:
+        department_temp[department] = [0, "None"]
+    
+    college_temp.append(department_temp)
+    data[college] = college_temp
+
+for gameName in gameNames:
+    with open(f'./web/src/data/{gameName}.json', 'w', encoding='utf8') as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)

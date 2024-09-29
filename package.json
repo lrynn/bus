@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "concurrently": "^9.0.1",
+    "http-proxy-middleware": "^3.0.2"
+  },
+  "scripts": {
+    "server": "cd server && nodemon server",
+    "web": "cd web && npm start",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+  }
+}

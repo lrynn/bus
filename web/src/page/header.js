@@ -23,7 +23,7 @@ function Header({ nick }) {
   let rButtonList = [ // 상단바 우측 버튼 링크
     {id:0, title:'소개', link:'/page/article/intro'},
     {id:1, title:'공지사항', link:'/page/article/announcement'},
-    {id:2, title:'자료실', link:'/page/article/archive'},
+    {id:2, title:'순위표', link:'/page/article/archive'},
     {id:3, title:'고객센터', link:'/page/article/services'}
   ];
   return (

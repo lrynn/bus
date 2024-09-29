@@ -20,7 +20,7 @@ function SelectDept() {
   };
   const confirmButton = () => {
     setUserInfo([selectedCollege, selectedMajor, userInfo[2]]);
-    alert(userInfo[0]+' '+userInfo[1]+' '+userInfo[2]);
+    alert('사용자 정보가 '+ selectedCollege + ' ' + selectedMajor +' (으)로 변경되었습니다!');
   }
   return (
     <div>
@@ -65,21 +65,32 @@ export default function LoginPage() {
   const [text, setText] = useState(textTemplate);
 
   const [inputNick, setInputNick] = useState('');
-  const onChange = (e)=>{
+  const onChange = (e) => {
+    if (inputNick.length < 16) {
       setInputNick(e.target.value);
+    }
+    else {
+      setInputNick(inputNick.substring(0, 15));
+    }
   }
   const onReset = ()=>{
       setInputNick('');
   }
   const activeEnter = (e) => {
     if (e.key === "Enter") {
-      handleChangeNickname(inputNick);
-      onReset();
-      setText("변경할 닉네임 입력");
-
-      console.log(userNickname);
-      alert('닉네임이 '+ inputNick +' (으)로 변경되었습니다!');
+      setNickname();
     }
+    else if (e.keyCode === 27/*== ESC*/) {
+      onReset();
+    }
+  }
+  const setNickname = () => {
+    handleChangeNickname(inputNick);
+    onReset();
+    setText("변경할 닉네임 입력");
+
+    console.log(userNickname);
+    alert('닉네임이 '+ inputNick +' (으)로 변경되었습니다!');
   }
 
   return (
@@ -92,9 +103,9 @@ export default function LoginPage() {
           onChange={onChange}
           onKeyDown={(e) => activeEnter(e)}
           value={inputNick} />
-        <button onClick={onReset}>초기화</button>
+        <button onClick={setNickname}>닉네임 변경</button>
       </div>
-      <SelectDept/>
+      {userNickname != "InitialNickname" && <SelectDept />}
     </div>
   );
 }

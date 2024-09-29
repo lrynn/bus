@@ -1,4 +1,5 @@
 *.pdf
+node_modules/
 
 ####### 서버 #######
 server/node_modules/
@@ -7,6 +8,7 @@ server/pw.js
 
 ####### 클라 #######
 web/node_modules/
+web/build/
 
 # 사진파일 무시
 web/**/*.jpg
