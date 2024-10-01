@@ -36,26 +36,28 @@ const ImageSlider = () => {
   };
 
   return (
-    <div className="slider">
-      <div className="slides-container" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className="slide"
-            style={{ backgroundImage: `url(${image})` }}
-          >
-          </div>
-        ))}
-        
-      </div>
-      <div className="dots-container">
-        {images.map((_, index) => (
-          <div
-            key={index}
-            className={`dot ${index === currentIndex ? 'active' : ''}`}
-            onClick={() => goToSlide(index)}
-          ></div>
-        ))}
+    <div className='sliderBackground'>
+      <div className="slider">
+        <div className="slides-container" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className="slide"
+              style={{ backgroundImage: `url(${image})` }}
+            >
+            </div>
+          ))}
+          
+        </div>
+        <div className="dots-container">
+          {images.map((_, index) => (
+            <div
+              key={index}
+              className={`dot ${index === currentIndex ? 'active' : ''}`}
+              onClick={() => goToSlide(index)}
+            ></div>
+          ))}
+        </div>
       </div>
     </div>
   );

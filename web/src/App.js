@@ -9,6 +9,7 @@ import Announcement from './page/article/announcement';
 import Archive from './page/article/archive';
 import Intro from './page/article/intro';
 import Services from './page/article/services';
+import Game from './page/game';
 
 import './App.css'
 function Bottom(){
@@ -18,7 +19,7 @@ function Bottom(){
         HyunBus Software ⓒ 2024
       </p>
       <p>
-        Web Version : 9.30.26
+        Web Version : 10.1.19
       </p>
     </footer>
   );
@@ -48,7 +49,7 @@ const App = () => {
           <div className='app-top'>
             <Header nick={ useUserInfo() } />
             <Routes>
-              <Route path='/' element={<Main />} />
+              <Route path='/*' element={<Main />} />
               <Route path='/login' element={<LoginPage />} />
               <Route path='/page/article/announcement' element={<Announcement />} />
               <Route path='/page/article/archive' element={<Archive />} />
