@@ -2,11 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import './ImageSlider.css'; // 스타일링을 위한 CSS 파일
 
 const images = [
-  '/img/thumbnail_test0.jpg', 
-  '/img/thumbnail_test1.jpg',
-  '/img/thumbnail_test2.jpg',
-  '/img/thumbnail_test3.jpg',
-  '/img/KakaoTalk_20240820_034704755.jpg'
+  '/img/door.png',
+  '/img/khuonbird.png',
+  '/img/numbsball.png',
+  '/img/tetris.png'
 ];
 
 const ImageSlider = () => {

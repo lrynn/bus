@@ -10,6 +10,9 @@ server/pw.js
 web/node_modules/
 web/build/
 
+# 게임파일 무시
+web/public/games/
+
 # 사진파일 무시
 web/**/*.jpg
 web/**/*.png

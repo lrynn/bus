@@ -9,7 +9,6 @@ import Announcement from './page/article/announcement';
 import Archive from './page/article/archive';
 import Intro from './page/article/intro';
 import Services from './page/article/services';
-import Game from './page/game';
 
 import './App.css'
 function Bottom(){
@@ -19,7 +18,7 @@ function Bottom(){
         HyunBus Software ⓒ 2024
       </p>
       <p>
-        Web Version : 10.1.19
+        Web Version : 10.4.27
       </p>
     </footer>
   );

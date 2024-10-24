@@ -40,11 +40,29 @@
     width:100%;
 }
 .gameButton{
-    width:14.285%;
+    width:12.5%;
+}
+
+.gradeTableDiv{
+    padding:0 10px;
+
+    div{
+        margin:10px 0;
+    }
+    span{
+        font-size: 1.3rem;
+        padding:0 15px;
+    }
 }
 
 .drip{
     color:gray;
+}
+
+.timwonSogae{
+    span{
+        padding:0 15px;
+    }
 }
 
 h1{

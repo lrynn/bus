@@ -69,6 +69,7 @@
   margin: 12px;
   color:red;
   font-size: larger;
+  font-weight: bold;
 }
 
 .topButtons {
@@ -76,6 +77,7 @@
   margin: 12px;
   color:red;
   font-size: larger;
+  font-weight: bold;
 }
 
 .divContents{
@@ -92,11 +94,30 @@
 .allGamesList {
   table {
     width:100%;
-    border: 1px solid black;
+  }
+  tr{
+    height: 100px;
   }
   td {
     height:100px;
     width:25%;
     text-align: center;
   }
+}
+
+.thumbnail{
+  position: relative;
+  .thumbnailText{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate( -50%, -50% );
+    color: white;
+    text-shadow: 0 0 5px black;
+  }
+}
+
+a{
+  color:black;
+  text-decoration-line:none;
 }

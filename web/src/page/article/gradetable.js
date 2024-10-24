@@ -5,7 +5,7 @@ import './article.css';
 
 async function callApi(gameName) {
     try {
-        const response = await axios.get("https://hyunverse.kro.kr:3001/web", { params: { gameName: gameName } });
+        const response = await axios.get("https://hyunverse.kro.kr:3001/web");
         return response.data;
     }
     catch (error) {
@@ -40,27 +40,23 @@ function chooseTrueValues(data) {
 }
 
 export default function GradeTable(props) {
-    const [data, setData] = useState(null);
+    let [data, setData] = useState(null);
     const [dataLoading, setDataLoading] = useState(true);
 
     useEffect(() => {
         setDataLoading(true);
         const response = async () => {
             try {
-                const result = await callApi(props.selectedGame);
+                const result = await callApi();
                 setData(result);
                 setDataLoading(false);
             } catch (error) {
-                console.error('데이터를 가져오는 중 에러가 발생했습니다:', error);
                 setDataLoading(false);
+                return (<div><p>데이터를 가져오는 중 에러가 발생했습니다:</p><p>{error}</p></div>);
             }
         };
         response();
     }, [props.selectedGame]);
-
-    useEffect(() => {
-        if (!dataLoading) setData(chooseTrueValues(data));
-    }, [dataLoading]);
 
     if (dataLoading) {
         return (
@@ -69,55 +65,82 @@ export default function GradeTable(props) {
             </div>
         );
     }
-    else return (
-        data && Object.entries(data).map(([collegeKey, collegeValue], index) => {
-            {
-                console.log(data);
-                // console.log(collegeKey);
-                // console.log(data[collegeKey]);
-                // console.log(data[collegeKey][0]);
-            }
-            let collegeGrade = index + 1;
-            return (
+    else {
+        return (
+            <div className="gradeTableDiv">
                 <div>
-                    <div className="collegeGameData" key={collegeKey}>
-                        <div className="collegeGrade">
-                            {collegeGrade}위
-                            <span className="collegeName">
-                                {collegeKey}
-                            </span>
-                        </div>
-                        <div className="collegeRecord">
-                            <span className="collegeRecordName">
-                                {data[collegeKey][1]} -
-                            </span>
-                            <span className="collegeRecordScore">
-                                <span className="score">{data[collegeKey][0]}</span> pts
-                            </span>
-                            {Object.entries(data[collegeKey][2]).map(([deptKey, deptValue], deptIndex) => (
-                                <div key={deptKey}>
-                                    <div className="deptGameData">
-                                        <span className="deptGrade">
-                                            {deptIndex + 1}위
-                                        </span>
-                                        <span className="deptName">
-                                            {deptKey}
-                                        </span>
-                                        <div className="deptRecord">
-                                            <span className="userName">
-                                                {deptValue[1]} -
-                                            </span>
-                                            <span className="userScore">
-                                                <span className="score">{deptValue[0]}</span> pts
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                    플래피쿠옹 최고기록:
                 </div>
-            );
-        })
-    )
+                <div>
+                    <span>
+                        {data['data'][0]}
+                    </span>
+                    pts
+                </div>
+                <div>
+                    테트리스 최고기록:
+                </div>
+                <div>
+                    <span>
+                        {data['data'][1]}
+                    </span>
+                    pts
+                </div>
+                <div>
+                    지뢰찾기 최고기록:
+                </div>
+                <div>
+                    <span>
+                        {data['data'][2]}
+                    </span>
+                    pts
+                </div>
+                <div>
+                    스네이크 최고기록:
+                </div>
+                <div>
+                    <span>
+                        {data['data'][3]}
+                    </span>
+                    pts
+                </div>
+                <div>
+                    팩맨 최고기록:
+                </div>
+                <div>
+                    <span>
+                        {data['data'][4]}
+                    </span>
+                    pts
+                </div>
+                <div>
+                    팝쿠 최고기록:
+                </div>
+                <div>
+                    <span>
+                        {data['data'][5]}
+                    </span>
+                    pts
+                </div>
+                <div>
+                    숫자야구 최고기록:
+                </div>
+                <div>
+                    <span>
+                        {data['data'][6]}
+                    </span>
+                    pts
+                </div>
+                <div>
+                    전공어택 최고기록:
+                </div>
+                <div>
+                    <span>
+                        {data['data'][7]}
+                    </span>
+                    pts
+                </div>
+            </div>
+        )
+    }
 };
